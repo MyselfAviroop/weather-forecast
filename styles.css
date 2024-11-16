@@ -1,0 +1,189 @@
+
+/* General Styles */
+body {
+    color: white;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* Search Box Styling */
+#searchBox {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+    
+}
+
+#searchBox input {
+    padding: 10px;
+    background-color: black;
+    width: 100%; /* Adjust width to fit on smaller screens */
+   
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#searchBox button {
+    padding: 10px 15px;
+    background-color: rgb(236, 170, 49);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s ease;
+}
+
+#searchBox button:hover {
+    background-color: rgb(147, 106, 30);
+}
+
+/* Map Styling */
+#map {
+    height: 100vh;
+    width: 100%;
+}
+
+/* Sidebar Styling */
+.sidebar.open {
+    right: 0;
+    z-index: 500;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar img {
+    display: block;
+    margin: 20px auto;
+    width: 80px;
+    height: 80px;
+}
+
+.sidebar p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 3.5em;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+}
+
+/* Animations */
+.sidebar.open img {
+    animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Sidebar Styling */
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30vw;
+    color: rgb(236, 170, 49);
+    height: 100%;
+    background-color: black;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    transition: transform 0.3s ease;
+}
+
+#sidebar.open {
+    display: block;
+    transform: translateX(0);
+}
+
+#sidebarcity,
+#sidebarTemperature,
+#sidebarHumidity,
+#sidebarWindSpeed,
+#sidebarForecast {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#sidebarWeatherIcon {
+    width: 50px;
+    height: 50px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For small screens like mobile devices */
+@media (max-width: 768px) {
+    /* Adjust sidebar width */
+    #sidebar {
+        width: 60vw; /* Sidebar becomes wider on small screens */
+    }
+
+    #sidebarcity, #sidebarTemperature, #sidebarHumidity, #sidebarWindSpeed, #sidebarForecast {
+        font-size: 14px; /* Smaller font size on mobile */
+    }
+
+    #sidebar h2 {
+        font-size: 30px; /* Adjust h2 size */
+    }
+
+    /* Search Box on small devices */
+    #searchBox input {
+        width: 90%; /* Make search box more responsive */
+    }
+
+    /* Adjust the close button */
+    .close-btn {
+        font-size: 2em; /* Make close button smaller */
+    }
+}
+
+/* For extra small screens like very small mobile devices */
+@media (max-width: 480px) {
+    /* Further adjust sidebar width */
+    #sidebar {
+        width: 80vw;
+    }
+
+    #searchBox input {
+        width: 100%; /* Ensure search box takes full width */
+    }
+
+    #sidebarcity, #sidebarTemperature, #sidebarHumidity, #sidebarWindSpeed, #sidebarForecast {
+        font-size: 12px; /* Further reduce font size */
+    }
+
+    #sidebar h2 {
+        font-size: 24px; /* Smaller header for extra small screens */
+    }
+}
